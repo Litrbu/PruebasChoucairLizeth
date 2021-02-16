@@ -1,7 +1,7 @@
-Feature: Testear formularios de login/choucair
+Feature: Testear pagina/choucair
 
 
-  Scenario Outline: Testear formularios
+  Scenario Outline: Testear pagina
     Given Open google.com
     When Entering number <firstNumber> and <secondNumber>
     And Press enter
@@ -9,6 +9,4 @@ Feature: Testear formularios de login/choucair
 
     Examples:
       | firstNumber | secondNumber | result |
-      | 6           | 6            | 12     |
-      | 6           | 2            | 8      |
-      | 8           | 5            | 13     |
+      | 1           | 1            |1       |
