@@ -23,3 +23,21 @@ dependencies {
     implementation 'org.seleniumhq.selenium:selenium-java:' + seleniumJavaVersion
     implementation 'org.seleniumhq.selenium:selenium-chrome-driver:' + seleniumChromeDriverVersion
 }
+
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+task cucumber() {
+    dependsOn assemble, compileTestJava
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'html:reports/test-report', '--plugin', 'pretty', '--glue', 'com.choucairempleos.selenium', 'src/test/resources']
+        }
+    }
+}
