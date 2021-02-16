@@ -9,6 +9,17 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
+project.ext {
+    cucumberVersion = '5.6.0'
+    cucumberJunitVersion = '5.6.0'
+    cucumberJunitVersion = '5.6.0'
+    seleniumJavaVersion = '3.141.59'
+    seleniumChromeDriverVersion = '3.141.59'
 }
 
+dependencies {
+    testImplementation 'io.cucumber:cucumber-java:' + cucumberVersion
+    testImplementation 'io.cucumber:cucumber-junit:' + cucumberJunitVersion
+    implementation 'org.seleniumhq.selenium:selenium-java:' + seleniumJavaVersion
+    implementation 'org.seleniumhq.selenium:selenium-chrome-driver:' + seleniumChromeDriverVersion
+}
